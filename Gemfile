@@ -50,3 +50,7 @@ gem 'graphiql-rails', group: :development
 gem 'rspec-graphql_matchers'
 
 gem 'sprockets', '~> 3'
+
+gem 'json'
+
+gem 'rest-client'
