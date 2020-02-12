@@ -1,24 +1,20 @@
-# README
+# BuyCoins BackEnd Developer Challenge
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The challenge is to create a GraphQL API with one query. The query `calculatePrice` accepts three required arguments:
 
-Things you may want to cover:
+- `type`: This can either be `buy` or `sell`, nothing else.
+- `margin`: This is a percentage that will be used in a calculation. Not a fraction, a percentage. For example, if `0.2` is passed into this argument, then the calculation should be done with 0.2%.
+- `exchangeRate`: This is a custom USD/NGN exchange rate that will be used in the calculation detailed below.
 
-* Ruby version
+* Ruby version - 2.6.5
+* Rails version - 6.0.2.1
 
-* System dependencies
+## Getting started
 
-* Configuration
+To start the server run
+`bundle exec rails server`
 
-* Database creation
+To run test suite run
+`bundle exec rspec`
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The API mounts a GraphiQL interface at `/graphiql`.
