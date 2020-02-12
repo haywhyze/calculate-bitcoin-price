@@ -20,7 +20,9 @@ module Types
     end
 
     def calculate_price(type: nil, margin: nil, exchange_rate: nil)
-      response = RestClient.get 'https://api.coindesk.com/v1/bpi/currentprice.json'
+      url = 'https://api.coindesk.com/v1/bpi/currentprice.json'
+      safeurl = URI.encode(url.strip)
+      response = RestClient.get(safeurl)
       bitcoin_price = JSON.parse(response)['bpi']['USD']['rate_float']
       time = JSON.parse(response)['time']['updated']
       commission = (bitcoin_price * margin / 100)
