@@ -22,7 +22,7 @@ module Types
     def calculate_price(type: nil, margin: nil, exchange_rate: nil)
       response = RestClient.get 'https://api.coindesk.com/v1/bpi/currentprice.json'
       bitcoin_price = JSON.parse(response)['bpi']['USD']['rate_float']
-      # puts helpers.number_to_currency(bitcoin_price, unit: '₦')
+      time = JSON.parse(response)['time']['updated']
       commission = (bitcoin_price * margin / 100)
       final_price = 0
       if type == 'buy'
@@ -33,7 +33,7 @@ module Types
       {
         price: final_price,
         formatted_price: helpers.number_to_currency(final_price, unit: '₦'),
-        time: JSON.parse(response)['time']['updated']
+        time: time
       }
     end
   end
